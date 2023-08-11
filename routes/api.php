@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SignInController;
 
 /*
@@ -22,5 +23,7 @@ use App\Http\Controllers\Api\SignInController;
 
 Route::prefix('auth')->group(function () {
     Route::post('signin', SignInController::class);
-    Route::post('login', [AuthController::class,'login']);
+    Route::post('login', [AuthController::class, 'login']);
+    // Route::get('me', [AuthController::class, 'me']);
+    Route::get('me', MeController::class);
 });
